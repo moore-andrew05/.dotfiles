@@ -71,7 +71,6 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 
-
 export PATH="$HOME/.local/bin:$PATH"
 bindkey -s '^[f' "tmux-sessionizer\n"
 
@@ -95,65 +94,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
-execute_commands() {
-    # Declare local variables
-    local filename=$1
-    local content=$(< $filename)              # Read the entire file into a string
-    content=${content//$'\n'/ }              # Replace all new lines with spaces
-    local commands=()                        # Array to store the parsed commands
-    local current_cmd=""                     # String to build the current command
-    local in_quotes="false"                  # Flag to track if inside quotes
-    local quote_char=""                      # Variable to store the current quote character
-    local skipping_spaces="true"             # Flag to skip spaces outside quotes
-
-    # Parse the content character by character
-    for (( i=1; i<=${#content}; i++ )); do
-        local char=${content[i]}
-       
-        # Handle skipping spaces between commands
-        if [[ $skipping_spaces == "true" ]]; then
-            if [[ $char == " " ]]; then
-                continue
-            else
-                skipping_spaces="false"
-            fi
-        fi
-
-        # Handle opening quotes
-        if [[ $char == "'" || $char == '"' ]] && [[ $in_quotes == "false" ]]; then
-            in_quotes="true"
-            quote_char=$char
-            current_cmd+=$char
-        # Handle closing quotes
-        elif [[ $char == $quote_char ]] && [[ $in_quotes == "true" ]]; then
-            current_cmd+=$char
-            in_quotes="false"
-        # Handle comma separator outside quotes
-        elif [[ $char == "," ]] && [[ $in_quotes == "false" ]]; then
-            commands+=($current_cmd)
-            current_cmd=""
-            skipping_spaces="true"
-        # Append any other character to the current command
-        else
-            current_cmd+=$char
-        fi
-    done
-
-    # Append the last command if it exists
-    if [[ -n $current_cmd ]]; then
-        commands+=($current_cmd)
-    fi
-
-    # Execute each command after removing outer quotes
-    for cmd in $commands; do
-        if [[ ${cmd[1]} == "'" && ${cmd[-1]} == "'" ]] || [[ ${cmd[1]} == '"' && ${cmd[-1]} == '"' ]]; then
-            eval ${cmd:1:-1}
-        else
-            echo "Invalid command format: $cmd"
-        fi
-    done
-}
-
 git_janitor() {
     local repo=$1
 
@@ -171,7 +111,6 @@ alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 alias rf='rm -r -f'
-alias ec=execute_commands
 alias cdd='cd ..'
 alias cddd='cd ../..'
 alias c3d='cd ../../..'
@@ -180,7 +119,7 @@ alias conda='micromamba'
 alias a='tmux a'
 alias t='tmux-sessionizer'
 
-# Dotfile setup
+# Dotfile git setup
 alias dfc='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Shell integrations
