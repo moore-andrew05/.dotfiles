@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cat ~/.secrets/sudo_pass | sudo -S mount /dev/sda1 /mnt/share
+cat ~/.secrets/sudo_pass | sudo -S systemctl start jellyfin.service
