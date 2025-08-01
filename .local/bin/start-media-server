@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cat ~/.secrets/sudo_pass | sudo -S mount /dev/sda1 /mnt/share
+cat ~/.secrets/sudo_pass | sudo -S mount /dev/disk/by-id/usb-Realtek_RTL9210_NVME_012345678904-0:0-part1 /mnt/share
 cat ~/.secrets/sudo_pass | sudo -S systemctl start jellyfin.service
