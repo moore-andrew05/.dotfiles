@@ -51,6 +51,8 @@ zinit cdreplay -q
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#96948b"
+
 # Keybindings
 bindkey -e
 bindkey '^p' history-search-backward
@@ -101,6 +103,7 @@ alias python=python3
 alias t='tmux-sessionizer'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias s="nvim /Users/amoore/projects/Professional/xAI/work/Scratchpad/Scratchpad.md"
+alias mount-nas="sudo mkdir /Volumes/nas && sudo mount -t nfs -v -o resvport,nolocks,rw 192.168.0.55:/bettik/nas /Volumes/nas"
 
 # Dotfile git setup
 alias dfc='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
