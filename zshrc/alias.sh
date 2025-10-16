@@ -8,7 +8,6 @@ alias cdd='cd ..'
 alias cddd='cd ../..'
 alias python=python3
 alias t='tmux-sessionizer'
-alias mount-nas="sudo mkdir /Volumes/nas && sudo mount -t nfs -v -o resvport,nolocks,rw 192.168.0.55:/bettik/nas /Volumes/nas"
 alias conda="micromamba"
 
 # Dotfile git setup
