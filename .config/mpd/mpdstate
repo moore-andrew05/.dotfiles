@@ -1,0 +1,28 @@
+sw_volume: 100
+audio_device_state:1:CoreAudio
+state: stop
+current: 6
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0
+mixrampdelay: -1
+lastloadedplaylist: 
+playlist_begin
+0:John_Mayer-Room_for_Squares/01.No_Such_Thing.flac
+1:John_Mayer-Room_for_Squares/02.Why_Georgia.flac
+2:John_Mayer-Room_for_Squares/03.My_Stupid_Mouth.flac
+3:John_Mayer-Room_for_Squares/04.Your_Body_Is_a_Wonderland.flac
+4:John_Mayer-Room_for_Squares/05.Neon.flac
+5:John_Mayer-Room_for_Squares/06.City_Love.flac
+6:John_Mayer-Room_for_Squares/07.83.flac
+7:John_Mayer-Room_for_Squares/08.3×5.flac
+8:John_Mayer-Room_for_Squares/09.Love_Song_for_No_One.flac
+9:John_Mayer-Room_for_Squares/10.Back_to_You.flac
+10:John_Mayer-Room_for_Squares/11.Great_Indoors.flac
+11:John_Mayer-Room_for_Squares/12.Not_Myself.flac
+12:John_Mayer-Room_for_Squares/13.[silence].flac
+13:John_Mayer-Room_for_Squares/14.St._Patrick’s_Day.flac
+playlist_end
